@@ -5,7 +5,7 @@
 ///
 /// @arg { Struct }         _struct         The struct that may or may not have the given field.
 /// @arg { String }         _field_name     The field to access on the given struct.
-/// @arg { Any, Function }  _default_value  This value will be read if the field is not on the struct. 
+/// @arg { Any, Function.()->Any }  _default_value  This value will be read if the field is not on the struct. 
 ///                                         See the read(_value) function.
 ///
 /// @return { Any }  The value in the struct, otherwise the read default value.
@@ -21,7 +21,7 @@ function struct_default(_struct, _field_name, _default_value) {
 ///
 /// @desc Try to read the value as a function, otherwise pass the value through.
 ///
-/// @arg { Any, Function }  _value  If it is callable, it will be called as a function,
+/// @arg { Any, Function.()->Any }  _value  If it is callable, it will be called as a function,
 ///						            without parameters, otherwise it will be passed through.
 ///
 /// @return { Any }  The result of calling value as a function, otherwise the value itself.

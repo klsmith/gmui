@@ -3,7 +3,7 @@ function label(_text, _halign = fa_center, _valign = fa_middle) {
 	return new Label(_text, _halign, _valign)
 }
 
-function Label(_text, _halign = fa_center, _valign = fa_middle) constructor {
+function Label(_text, _halign = fa_center, _valign = fa_middle) : GmUIElement() constructor {
 	text = _text
 	halign = _halign
 	valign = _valign

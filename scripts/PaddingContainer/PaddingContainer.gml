@@ -3,7 +3,7 @@ function padding(_padding_x, _padding_y, _child) {
 	return new PaddingContainer(_padding_x, _padding_y, _child)
 }
 
-function PaddingContainer(_padding_x, _padding_y, _child) constructor {
+function PaddingContainer(_padding_x, _padding_y, _child) : GmUIElement() constructor {
 	self.padding = new Vector2(_padding_x, _padding_y)
 	child = _child
 	

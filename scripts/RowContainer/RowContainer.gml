@@ -3,7 +3,7 @@ function row(_gap = 0, _children = []) {
 	return new RowContainer(_gap, _children)	
 }
 
-function RowContainer(_gap = 0, _children = []) constructor {
+function RowContainer(_gap = 0, _children = []) : GmUIElement() constructor {
 	children = _children
 	gap = _gap
 	
