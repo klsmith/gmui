@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ColumnContainer",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ColumnContainer",
+  "parent":{
+    "name":"GmUI",
+    "path":"folders/Scripts/GmUI.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
