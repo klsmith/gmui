@@ -27,5 +27,6 @@
     {"name":"RowContainer","order":7,"path":"scripts/RowContainer/RowContainer.yy",},
     {"name":"Utils","order":3,"path":"scripts/Utils/Utils.yy",},
     {"name":"Vector2","order":1,"path":"scripts/Vector2/Vector2.yy",},
+    {"name":"bg_wave","order":1,"path":"sprites/bg_wave/bg_wave.yy",},
   ],
 }

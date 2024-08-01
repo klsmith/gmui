@@ -1,32 +1,34 @@
+// gui layer stuff
+display_set_gui_maximize()
+
 // initialize variables
-count = 0
+count = 128
 
 // initialize functions
 read_fps = function(){ return "FPS: " + string(fps) }
-read_count = function(){ return "Count: " + string(count) }
-reset_count = function(){ count = 0 }
+read_count = function(){ return count }
+read_count_label = function() { return "Count: " + string(count) }
+reset_count = function(){ count = 32 }
 decrement_count = function(){ if (count > 0) count-- }
 increment_count = function(){ count++ }
 
 gmui = // build gui
-padding( 512, 128,
-	column( 32, [
-		label(read_fps),
+padding_xy(512, read_count,
+	column({ gap: 32 }, [
+		label({ text: read_fps }),
 		button(
-			padding( 32, 32,
-				row( 32, [ 
-					label( "<--", fa_left ),
-					label( "-->", fa_right ),
-				])
-			)
+			{ on_click: reset_count },
+			label({ text: read_count_label })
 		),
-		button(
-			label(read_count),
-			reset_count
-		),
-		row(32,[
-			button(label( "--" ), decrement_count),
-			button(label( "++" ), increment_count),
+		row({ gap: 32 }, [
+			button(
+				{ on_click: decrement_count },
+				label({ text: "--" })
+			),
+			button(
+				{ on_click: increment_count },
+				label({ text: "++" })
+			),
 		])
 	])
 )

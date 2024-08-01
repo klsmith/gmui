@@ -1,6 +1,6 @@
 
-function button(_child, _on_click = function(){}) {
-	return new Button(_child, _on_click)
+function button(_data, _child) {
+	return new Button(_child, _data.on_click)
 }
 
 function Button(_child, _on_click = function(){}) : GmUIElement() constructor {
@@ -36,7 +36,7 @@ function Button(_child, _on_click = function(){}) : GmUIElement() constructor {
 		}
 	}
 	
-	static render = function(_context) {
+	static render = function() {
 		if (cache.hover or cache.clicked) {
 			var _color = draw_get_color()
 			draw_set_color(cache.clicked ? c_ltgray : c_gray)
@@ -44,6 +44,6 @@ function Button(_child, _on_click = function(){}) : GmUIElement() constructor {
 			draw_set_color(_color)
 		}
 		draw_rectangle(cache.x1, cache.y1, cache.x2, cache.y2, true)
-		child.render(_context)
+		child.render()
 	}
 }

@@ -47,6 +47,8 @@
     {"id":{"name":"RowContainer","path":"scripts/RowContainer/RowContainer.yy",},},
     {"id":{"name":"Utils","path":"scripts/Utils/Utils.yy",},},
     {"id":{"name":"Vector2","path":"scripts/Vector2/Vector2.yy",},},
+    {"id":{"name":"bg_noise","path":"sprites/bg_noise/bg_noise.yy",},},
+    {"id":{"name":"bg_wave","path":"sprites/bg_wave/bg_wave.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

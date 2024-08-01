@@ -1,25 +1,21 @@
 
-function label(_text, _halign = fa_center, _valign = fa_middle) {
-	return new Label(_text, _halign, _valign)
+function label(_data) {
+	return new Label(_data)
 }
 
-function Label(_text, _halign = fa_center, _valign = fa_middle) : GmUIElement() constructor {
-	text = _text
-	halign = _halign
-	valign = _valign
+function Label(_data) : GmUIElement() constructor {
+	text = _data.text
+	halign = struct_default(_data, "halign", function(){return fa_center})
+	valign = struct_default(_data, "valign", function(){return fa_middle})
 	
-	static step = function(_context) {
-		// step event is required for all gmui classes
+	cache = {
+		x: 0,
+		y: 0,
 	}
 	
-	static render = function(_context) {
-		var _halign = draw_get_halign()
-		var _valign = draw_get_valign()
-		draw_set_halign(halign)
-		draw_set_valign(valign)
-		draw_text(get_x(_context), get_y(_context), read(text))
-		draw_set_halign(_halign)
-		draw_set_valign(_valign)
+	static step = function(_context) {
+		cache.x = get_x(_context)
+		cache.y = get_y(_context)
 	}
 	
 	static get_x = function(_context) {
@@ -38,4 +34,13 @@ function Label(_text, _halign = fa_center, _valign = fa_middle) : GmUIElement() 
 		}
 	}
 	
+	static render = function() {
+		var _halign = draw_get_halign()
+		var _valign = draw_get_valign()
+		draw_set_halign(halign)
+		draw_set_valign(valign)
+		draw_text(cache.x, cache.y, read(text))
+		draw_set_halign(_halign)
+		draw_set_valign(_valign)
+	}
 }
