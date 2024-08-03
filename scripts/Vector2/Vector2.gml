@@ -25,6 +25,6 @@ function Vector2(_x, _y) constructor {
 	/// @func scale_by(scalar)
 	/// @arg { Real } _scalar
 	static scale_by = function(_scalar) {
-		return new Vector2(x * _scalar, y * _scalar)	
+		return new Vector2(x * _scalar, y * _scalar)
 	}
 }

@@ -1,5 +1,7 @@
 function GmUIElement() constructor {
 
+	minimum_size = new Vector2(0, 0)
+
 	/// @return { Array<Struct.GmUIElement> }
 	static get_children = function() {
 		var _maybe_child = self[$ "child"]
@@ -30,9 +32,9 @@ function GmUIElement() constructor {
 	}
 	
 	/// @func render(context);
-	static render = function() {
-		for_each(get_children(), method(self, function(_i, _child) {
-			_child.render()
+	static render = function(_context) {
+		for_each(get_children(), method(_context, function(_i, _child) {
+			_child.render(self)
 		}))
 	}
 }

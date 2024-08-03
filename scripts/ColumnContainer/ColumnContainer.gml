@@ -10,7 +10,7 @@ function ColumnContainer(_gap, _children) : GmUIElement() constructor {
 	gap = _gap
 	
 	cache = {
-		children_count: array_length(_children)	
+		children_count: array_length(_children)
 	}
 	
 	static step = function(_context) {
