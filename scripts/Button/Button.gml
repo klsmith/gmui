@@ -1,10 +1,11 @@
 function button(_data, _child) {
-	return new Button(_child, _data.on_click)
+	return new Button(_child, _data)
 }
 
-function Button(_child, _on_click = function(){}) : GmUIElement() constructor {
+function Button(_child, _data) : GmUIElement() constructor {
 	child = _child
-	on_click = _on_click;
+	border_radius = struct_default(_data, "border_radius", 0)
+	on_click = struct_default(_data, "on_click", function() {});
 	
 	cache = {
 		hover: false,
@@ -43,13 +44,34 @@ function Button(_child, _on_click = function(){}) : GmUIElement() constructor {
 	}
 	
 	static render = function(_context) {
+		// DRAW BACKGROUND
 		if (cache.hover or cache.clicked) {
 			var _color = draw_get_color()
 			draw_set_color(cache.clicked ? c_ltgray : c_gray)
-			draw_rectangle(cache.x1, cache.y1, cache.x2, cache.y2, false)
+			if (border_radius > 0) {
+				draw_roundrect_ext(
+					cache.x1, cache.y1,
+					cache.x2, cache.y2,
+					border_radius, border_radius,
+					false
+				)
+			} else {
+				draw_rectangle(cache.x1, cache.y1, cache.x2, cache.y2, false)
+			}
 			draw_set_color(_color)
 		}
-		draw_rectangle(cache.x1, cache.y1, cache.x2, cache.y2, true)
+		// DRAW OUTLINE
+		if (border_radius > 0) {
+			draw_roundrect_ext(
+				cache.x1, cache.y1,
+				cache.x2, cache.y2,
+				border_radius, border_radius,
+				true
+			)
+		} else {
+			draw_rectangle(cache.x1, cache.y1, cache.x2, cache.y2, true)
+		}
 		child.render()
 	}
+	
 }
